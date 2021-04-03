@@ -20,7 +20,9 @@ namespace TicTacToe
         Player player2 = new Player(0, "Fabio",false);
         //GameBoard gameBoard = new GameBoard();
         int boardComplete = -1;
-
+        int winnerPlayerX = 0;
+        int winnerPlayerO = 0;
+        int gameInProgress = -1;
         public int boardCheck()
         {
             if (
@@ -34,8 +36,8 @@ namespace TicTacToe
             button3.Text == "X" && button5.Text == "X" && button7.Text == "X"
                 )
             {
-
-                return 1;
+                winnerPlayerX = 1;
+                return winnerPlayerX;
             }
             else if (
             button1.Text == "O" && button2.Text == "O" && button3.Text == "O" ||
@@ -48,10 +50,11 @@ namespace TicTacToe
             button3.Text == "O" && button5.Text == "O" && button7.Text == "O"
                 )
             {
-                return 0;
+                winnerPlayerO = 0;
+                return winnerPlayerO;
             }
 
-            return -1;
+            return gameInProgress;
         }
         public gameForm()
         {
